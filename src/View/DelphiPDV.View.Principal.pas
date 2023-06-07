@@ -39,7 +39,6 @@ type
     PanelCancelOperation: TPanel;
     ShapeCancelOperation: TShape;
     SpeedButtonCancelOperation: TSpeedButton;
-    GridPanel1: TGridPanel;
     DBGrid: TcxGrid;
     GridView: TcxGridDBTableView;
     ColumnCodigo: TcxGridDBColumn;
@@ -51,24 +50,24 @@ type
     ColumnQuantity: TcxGridDBColumn;
     ColumnSubTotal: TcxGridDBColumn;
     aDataSource: TDataSource;
-    PanelSearchPrice: TPanel;
-    ShapeSearchPrice: TShape;
-    SpeedButtonSearchPrice: TSpeedButton;
-    PanelOpenCashier: TPanel;
-    ShapeOpenCashier: TShape;
-    SpeedButtonOpenCashier: TSpeedButton;
-    PanelCancelSale: TPanel;
-    ShapeCancelSale: TShape;
-    SpeedButtonCancelSale: TSpeedButton;
-    PanelCancelItem: TPanel;
-    ShapeCancelItem: TShape;
-    SpeedCancelItem: TSpeedButton;
-    PanelDevolution: TPanel;
-    ShapeDevolution: TShape;
-    SpeedButtonDevolution: TSpeedButton;
-    PanelMoreFunctions: TPanel;
-    ShapeMoreFunctions: TShape;
-    SpeedButtonMoreFunctions: TSpeedButton;
+    Panel1: TPanel;
+    Shape1: TShape;
+    SpeedButton1: TSpeedButton;
+    Panel2: TPanel;
+    Shape2: TShape;
+    SpeedButton2: TSpeedButton;
+    Panel3: TPanel;
+    Shape3: TShape;
+    SpeedButton3: TSpeedButton;
+    Panel4: TPanel;
+    Shape4: TShape;
+    SpeedButton4: TSpeedButton;
+    Panel5: TPanel;
+    Shape5: TShape;
+    SpeedButton5: TSpeedButton;
+    Panel6: TPanel;
+    Shape6: TShape;
+    SpeedButton6: TSpeedButton;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -92,7 +91,7 @@ implementation
 
 procedure TVwPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-//
+  Action := caFree
 end;
 
 procedure TVwPrincipal.FormKeyDown(Sender: TObject; var Key: Word;
@@ -101,17 +100,15 @@ begin
   inherited;
   case Key of
     VK_ESCAPE:
-    begin
-//
-    end;
+      Close;
     VK_NEXT:
-    begin
       Process;
-    end;
     VK_RETURN:
-    begin
-//
-    end;
+      SelectNext(Screen.ActiveControl, True, True);
+    VK_UP:
+      aDataSource.DataSet.Next;
+    VK_DOWN:
+      aDataSource.DataSet.Prior;
   end;
 end;
 
@@ -135,12 +132,12 @@ end;
 procedure TVwPrincipal.Process;
 begin
   Review;
-//
 end;
 
 procedure TVwPrincipal.Review;
 begin
-//
+  if not Assigned(aDataSource.DataSet) then
+    Exit;
 end;
 
 end.
