@@ -4,10 +4,10 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore, dxSkinBasic,
-  dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee,
-  dxSkinDarkroom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, cxGraphics, cxControls,
+  cxLookAndFeels, cxLookAndFeelPainters, cxContainer, cxEdit, dxSkinsCore,
+  dxSkinBasic, dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel,
+  dxSkinCoffee, dxSkinDarkroom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
   dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
   dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
   dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
@@ -22,28 +22,31 @@ uses
   dxSkinTheBezier, dxSkinsDefaultPainters, dxSkinValentine,
   dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
   dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue, cxTextEdit, Vcl.ExtCtrls, Vcl.Menus, Vcl.StdCtrls,
-  cxButtons, dxGDIPlusClasses;
+  dxSkinXmas2008Blue, Vcl.Menus, Vcl.StdCtrls, cxButtons, cxTextEdit,
+  DelphiPDV.View.Component.Transparency, dxGDIPlusClasses;
 
 type
   TVwLogin = class(TForm)
+    GridPanelContainer: TGridPanel;
+    GridPanelLogin: TGridPanel;
+    PanelLogin: TPanel;
+    PanelImage: TPanel;
+    ImageLogin: TImage;
     GridPanel1: TGridPanel;
-    GridPanel2: TGridPanel;
-    GridPanel3: TGridPanel;
-    Panel1: TPanel;
-    Panel2: TPanel;
-    Image2: TImage;
-    EditNome: TcxTextEdit;
-    Panel3: TPanel;
-    Image3: TImage;
-    EditSenha: TcxTextEdit;
-    ButtonEnter: TcxButton;
-    ButtonClose: TcxButton;
+    LabelLogin: TLabel;
+    LabelUsername: TLabel;
+    EditUsername: TcxTextEdit;
+    LabelPassword: TLabel;
+    EditPassword: TcxTextEdit;
+    ButtonLogin: TcxButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure ButtonLoginClick(Sender: TObject);
   private
     { Private declarations }
+    FBackground: TVwComponentTransparency;
   public
     { Public declarations }
     Procedure Process;
@@ -57,34 +60,78 @@ implementation
 
 {$R *.dfm}
 
+{ TForm1 }
+
+procedure TVwLogin.ButtonLoginClick(Sender: TObject);
+begin
+  Process;
+end;
+
 procedure TVwLogin.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  Action := Cafree;
+  FBackground.Free;
+end;
+
+procedure TVwLogin.FormCreate(Sender: TObject);
+begin
+  FBackground        := TVwComponentTransparency.Create(nil);
+  FBackground.Parent := PanelImage;
+  FBackground.Show;
 end;
 
 procedure TVwLogin.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
-//
+  inherited;
+  case Key of
+    VK_ESCAPE:
+    begin
+      Close;
+    end;
+    VK_NEXT:
+    begin
+      if not ButtonLogin.Focused then
+        SelectNext(Screen.ActiveControl, True, True);
+
+      Process;
+    end;
+  end;
 end;
 
 procedure TVwLogin.FormShow(Sender: TObject);
 begin
-//
+  EditUsername.Clear;
+  EditPassword.Clear;
 end;
 
 procedure TVwLogin.Process;
 begin
-//
+  Review;
+  Close;
 end;
 
 procedure TVwLogin.Review;
 begin
-  if Trim(EditNome.Text) = '' then
+  if Trim(EditUsername.Text) = '' then
+  begin
+    EditUsername.SetFocus;
+    Application.MessageBox(PWideChar('Usuário não informado.'), 'Aviso', MB_ICONEXCLAMATION+MB_OK);
     Abort;
+  end;
+  if Trim(EditPassword.Text) = '' then
+  begin
+    EditPassword.SetFocus;
+    Application.MessageBox(PWideChar('Senha não informada.'), 'Aviso', MB_ICONEXCLAMATION+MB_OK);
+    Abort;
+  end;
+  if not ((EditUsername.Text = 'alberto.parente') and (EditPassword.Text = '123456')) then
+  begin
+    Application.MessageBox(PWideChar('Usuário ou senha inválida.'), 'Aviso', MB_ICONEXCLAMATION+MB_OK);
+    Abort;
+  end;
+  Close;
 
-  if Trim(EditSenha.Text) = '' then
-    Abort;
+  EditPassword.Clear;
 end;
 
 end.
