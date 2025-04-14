@@ -1,4 +1,4 @@
-object Form144: TForm144
+object Form136: TForm136
   Left = 0
   Top = 0
   ClientHeight = 768
@@ -14,9 +14,9 @@ object Form144: TForm144
   object DBGrid: TcxGrid
     AlignWithMargins = True
     Left = 0
-    Top = 59
+    Top = 381
     Width = 1024
-    Height = 353
+    Height = 369
     Margins.Left = 0
     Margins.Top = 2
     Margins.Right = 0
@@ -34,7 +34,9 @@ object Form144: TForm144
     TabOrder = 0
     TabStop = False
     LookAndFeel.Kind = lfOffice11
-    ExplicitLeft = 5
+    ExplicitLeft = -400
+    ExplicitTop = -250
+    ExplicitHeight = 691
     object GridView: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = True
@@ -125,6 +127,7 @@ object Form144: TForm144
     Height = 57
     Align = alTop
     BevelOuter = bvNone
+    Enabled = False
     TabOrder = 1
     ExplicitLeft = -400
     object LabelPesquisa: TLabel
@@ -134,6 +137,7 @@ object Form144: TForm144
       Height = 15
       Align = alTop
       Caption = 'Pesquisar Vendedor'
+      Enabled = False
       ExplicitWidth = 103
     end
     object EditPesquisa: TEdit
@@ -143,6 +147,7 @@ object Form144: TForm144
       Height = 42
       Align = alClient
       Alignment = taCenter
+      Enabled = False
       TabOrder = 0
       ExplicitHeight = 23
     end
@@ -154,6 +159,7 @@ object Form144: TForm144
     Height = 16
     Align = alBottom
     BevelOuter = bvNone
+    Enabled = False
     TabOrder = 2
     ExplicitLeft = -400
     ExplicitTop = 425
@@ -165,6 +171,7 @@ object Form144: TForm144
       Align = alClient
       Alignment = taCenter
       Caption = '<Esc> Retorna        <Enter> Seleciona'
+      Enabled = False
       ExplicitWidth = 197
       ExplicitHeight = 15
     end
@@ -172,14 +179,14 @@ object Form144: TForm144
   object cxGrid1: TcxGrid
     AlignWithMargins = True
     Left = 0
-    Top = 416
+    Top = 59
     Width = 1024
-    Height = 334
+    Height = 318
     Margins.Left = 0
     Margins.Top = 2
     Margins.Right = 0
     Margins.Bottom = 2
-    Align = alBottom
+    Align = alTop
     BevelInner = bvNone
     BevelOuter = bvNone
     Enabled = False
@@ -192,6 +199,7 @@ object Form144: TForm144
     TabOrder = 3
     TabStop = False
     LookAndFeel.Kind = lfOffice11
+    ExplicitTop = 432
     object cxGridDBTableView1: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = True
@@ -276,7 +284,8 @@ object Form144: TForm144
     end
   end
   object aDataSource: TDataSource
-    Left = 924
-    Top = 104
+    Enabled = False
+    Left = 956
+    Top = 88
   end
 end

@@ -1,6 +1,7 @@
-object Form187: TForm187
+object VwBatch: TVwBatch
   Left = 0
   Top = 0
+  Caption = 'VwBatch'
   ClientHeight = 768
   ClientWidth = 1024
   Color = clBtnFace
@@ -13,6 +14,34 @@ object Form187: TForm187
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   TextHeight = 15
+  object PanelPesquisa: TPanel
+    Left = 0
+    Top = 0
+    Width = 1024
+    Height = 57
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object LabelPesquisa: TLabel
+      Left = 0
+      Top = 0
+      Width = 1024
+      Height = 15
+      Align = alTop
+      Caption = 'Pesquisar Lote'
+      ExplicitWidth = 76
+    end
+    object EditPesquisa: TEdit
+      Left = 0
+      Top = 15
+      Width = 1024
+      Height = 42
+      Align = alClient
+      Alignment = taCenter
+      TabOrder = 0
+      ExplicitHeight = 23
+    end
+  end
   object DBGrid: TcxGrid
     AlignWithMargins = True
     Left = 0
@@ -31,13 +60,11 @@ object Form187: TForm187
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 1
     TabStop = False
     LookAndFeel.Kind = lfOffice11
-    ExplicitLeft = -400
-    ExplicitTop = -250
     object GridView: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = True
@@ -98,8 +125,8 @@ object Form187: TForm187
         Options.AutoWidthSizable = False
         Width = 60
       end
-      object ColumnSellerName: TcxGridDBColumn
-        Caption = 'Vendedor'
+      object ColumnBatch: TcxGridDBColumn
+        Caption = 'Lote'
         DataBinding.FieldName = 'numconselho'
         DataBinding.IsNullValueType = True
         PropertiesClassName = 'TcxTextEditProperties'
@@ -107,6 +134,14 @@ object Form187: TForm187
         Properties.MaxLength = 0
         Options.AutoWidthSizable = False
         Width = 200
+      end
+      object ColumnDateExpiration: TcxGridDBColumn
+        Caption = 'Data de Fabrica'#231#227'o'
+        DataBinding.IsNullValueType = True
+      end
+      object ColumnDateManufacture: TcxGridDBColumn
+        Caption = 'Data de Vencimento'
+        DataBinding.IsNullValueType = True
       end
     end
     object DBGridDBCardView1: TcxGridDBCardView
@@ -122,35 +157,6 @@ object Form187: TForm187
       GridView = GridView
     end
   end
-  object PanelPesquisa: TPanel
-    Left = 0
-    Top = 0
-    Width = 1024
-    Height = 57
-    Align = alTop
-    BevelOuter = bvNone
-    TabOrder = 1
-    ExplicitLeft = -400
-    object LabelPesquisa: TLabel
-      Left = 0
-      Top = 0
-      Width = 1024
-      Height = 15
-      Align = alTop
-      Caption = 'Pesquisar Vendedor'
-      ExplicitWidth = 103
-    end
-    object EditPesquisa: TEdit
-      Left = 0
-      Top = 15
-      Width = 1024
-      Height = 42
-      Align = alClient
-      Alignment = taCenter
-      TabOrder = 0
-      ExplicitHeight = 23
-    end
-  end
   object PanelInformation: TPanel
     Left = 0
     Top = 752
@@ -159,8 +165,6 @@ object Form187: TForm187
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitLeft = -400
-    ExplicitTop = 425
     object LabelInformation: TLabel
       Left = 0
       Top = 0
@@ -174,7 +178,7 @@ object Form187: TForm187
     end
   end
   object aDataSource: TDataSource
-    Left = 916
+    Left = 932
     Top = 104
   end
 end

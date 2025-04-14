@@ -29,7 +29,7 @@ uses
   cxClasses, cxGridCustomView, cxGrid;
 
 type
-  TForm144 = class(TForm)
+  TForm136 = class(TForm)
     DBGrid: TcxGrid;
     GridView: TcxGridDBTableView;
     ColumnCodigo: TcxGridDBColumn;
@@ -53,16 +53,18 @@ type
     { Private declarations }
   public
     { Public declarations }
+    procedure Process;
+    procedure Review;
   end;
 
 var
-  Form144: TForm144;
+  Form136: TForm136;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm144.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TForm136.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
@@ -88,6 +90,17 @@ begin
       aDataSource.DataSet.Next;
     end;
   end;
+end;
+
+procedure TForm136.Process;
+begin
+  Review;
+  Close;
+end;
+
+procedure TForm136.Review;
+begin
+
 end;
 
 end.

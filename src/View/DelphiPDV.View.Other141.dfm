@@ -1,4 +1,4 @@
-object Form139: TForm139
+object Form131: TForm131
   Left = 0
   Top = 0
   ClientHeight = 768
@@ -34,8 +34,8 @@ object Form139: TForm139
     TabOrder = 0
     TabStop = False
     LookAndFeel.Kind = lfOffice11
-    ExplicitLeft = -5
-    ExplicitTop = 56
+    ExplicitLeft = -400
+    ExplicitTop = -250
     object GridView: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = True
@@ -126,6 +126,7 @@ object Form139: TForm139
     Height = 57
     Align = alTop
     BevelOuter = bvNone
+    Enabled = False
     TabOrder = 1
     ExplicitLeft = -400
     object LabelPesquisa: TLabel
@@ -135,6 +136,7 @@ object Form139: TForm139
       Height = 15
       Align = alTop
       Caption = 'Pesquisar Vendedor'
+      Enabled = False
       ExplicitWidth = 103
     end
     object EditPesquisa: TEdit
@@ -144,6 +146,7 @@ object Form139: TForm139
       Height = 42
       Align = alClient
       Alignment = taCenter
+      Enabled = False
       TabOrder = 0
       ExplicitHeight = 23
     end
@@ -155,6 +158,7 @@ object Form139: TForm139
     Height = 16
     Align = alBottom
     BevelOuter = bvNone
+    Enabled = False
     TabOrder = 2
     ExplicitLeft = -400
     ExplicitTop = 425
@@ -166,12 +170,14 @@ object Form139: TForm139
       Align = alClient
       Alignment = taCenter
       Caption = '<Esc> Retorna        <Enter> Seleciona'
+      Enabled = False
       ExplicitWidth = 197
       ExplicitHeight = 15
     end
   end
   object aDataSource: TDataSource
-    Left = 948
+    Enabled = False
+    Left = 956
     Top = 96
   end
 end

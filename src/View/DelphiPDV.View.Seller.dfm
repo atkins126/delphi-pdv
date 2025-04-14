@@ -127,6 +127,7 @@ object VwSeller: TVwSeller
     Height = 57
     Align = alTop
     BevelOuter = bvNone
+    Enabled = False
     TabOrder = 1
     object LabelPesquisa: TLabel
       Left = 0
@@ -135,6 +136,7 @@ object VwSeller: TVwSeller
       Height = 15
       Align = alTop
       Caption = 'Pesquisar Vendedor'
+      Enabled = False
       ExplicitWidth = 103
     end
     object EditPesquisa: TEdit
@@ -144,6 +146,7 @@ object VwSeller: TVwSeller
       Height = 42
       Align = alClient
       Alignment = taCenter
+      Enabled = False
       TabOrder = 0
       ExplicitHeight = 23
     end
@@ -155,6 +158,7 @@ object VwSeller: TVwSeller
     Height = 16
     Align = alBottom
     BevelOuter = bvNone
+    Enabled = False
     TabOrder = 2
     object LabelInformation: TLabel
       Left = 0
@@ -164,12 +168,14 @@ object VwSeller: TVwSeller
       Align = alClient
       Alignment = taCenter
       Caption = '<Esc> Retorna        <Enter> Seleciona'
+      Enabled = False
       ExplicitWidth = 197
       ExplicitHeight = 15
     end
   end
   object aDataSource: TDataSource
-    Left = 920
-    Top = 104
+    Enabled = False
+    Left = 891
+    Top = 152
   end
 end

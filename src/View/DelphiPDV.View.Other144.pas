@@ -29,7 +29,7 @@ uses
   cxClasses, cxGridCustomView, cxGrid;
 
 type
-  TForm142 = class(TForm)
+  TForm134 = class(TForm)
     DBGrid: TcxGrid;
     GridView: TcxGridDBTableView;
     ColumnCodigo: TcxGridDBColumn;
@@ -42,21 +42,29 @@ type
     PanelInformation: TPanel;
     LabelInformation: TLabel;
     aDataSource: TDataSource;
+    cxGrid1: TcxGrid;
+    cxGridDBTableView1: TcxGridDBTableView;
+    cxGridDBColumn1: TcxGridDBColumn;
+    cxGridDBColumn2: TcxGridDBColumn;
+    cxGridDBCardView1: TcxGridDBCardView;
+    cxGridLevel1: TcxGridLevel;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
   public
     { Public declarations }
+    procedure Process;
+    procedure Review;
   end;
 
 var
-  Form142: TForm142;
+  Form134: TForm134;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm142.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TForm134.FormKeyDown(Sender: TObject; var Key: Word;
   Shift: TShiftState);
 begin
   inherited;
@@ -82,6 +90,17 @@ begin
       aDataSource.DataSet.Next;
     end;
   end;
+end;
+
+procedure TForm134.Process;
+begin
+  Review;
+  Close;
+end;
+
+procedure TForm134.Review;
+begin
+
 end;
 
 end.

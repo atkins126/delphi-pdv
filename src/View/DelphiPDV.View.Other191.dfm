@@ -1,7 +1,7 @@
-object Form189: TForm189
+object VwAddress: TVwAddress
   Left = 0
   Top = 0
-  Caption = ']'
+  Caption = 'VwAddress'
   ClientHeight = 768
   ClientWidth = 1024
   Color = clBtnFace
@@ -14,6 +14,34 @@ object Form189: TForm189
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   TextHeight = 15
+  object PanelPesquisa: TPanel
+    Left = 0
+    Top = 0
+    Width = 1024
+    Height = 57
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object LabelPesquisa: TLabel
+      Left = 0
+      Top = 0
+      Width = 1024
+      Height = 15
+      Align = alTop
+      Caption = 'Pesquisar Endere'#231'o'
+      ExplicitWidth = 102
+    end
+    object EditPesquisa: TEdit
+      Left = 0
+      Top = 15
+      Width = 1024
+      Height = 42
+      Align = alClient
+      Alignment = taCenter
+      TabOrder = 0
+      ExplicitHeight = 23
+    end
+  end
   object DBGrid: TcxGrid
     AlignWithMargins = True
     Left = 0
@@ -32,13 +60,11 @@ object Form189: TForm189
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 1
     TabStop = False
     LookAndFeel.Kind = lfOffice11
-    ExplicitLeft = -400
-    ExplicitTop = -250
     object GridView: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = True
@@ -59,6 +85,7 @@ object Form189: TForm189
       Navigator.Buttons.Filter.Visible = True
       FilterBox.CustomizeDialog = False
       ScrollbarAnnotations.CustomAnnotations = <>
+      OnCustomDrawCell = GridViewCustomDrawCell
       DataController.DataSource = aDataSource
       DataController.Filter.Options = [fcoCaseInsensitive]
       DataController.Summary.DefaultGroupSummaryItems = <>
@@ -99,7 +126,7 @@ object Form189: TForm189
         Width = 60
       end
       object ColumnSellerName: TcxGridDBColumn
-        Caption = 'Vendedor'
+        Caption = 'Rua'
         DataBinding.FieldName = 'numconselho'
         DataBinding.IsNullValueType = True
         PropertiesClassName = 'TcxTextEditProperties'
@@ -107,6 +134,18 @@ object Form189: TForm189
         Properties.MaxLength = 0
         Options.AutoWidthSizable = False
         Width = 200
+      end
+      object ColumnNumber: TcxGridDBColumn
+        Caption = 'Numero'
+        DataBinding.IsNullValueType = True
+      end
+      object ColumnCity: TcxGridDBColumn
+        Caption = 'Cidade'
+        DataBinding.IsNullValueType = True
+      end
+      object ColumnState: TcxGridDBColumn
+        Caption = 'Estado'
+        DataBinding.IsNullValueType = True
       end
     end
     object DBGridDBCardView1: TcxGridDBCardView
@@ -122,35 +161,6 @@ object Form189: TForm189
       GridView = GridView
     end
   end
-  object PanelPesquisa: TPanel
-    Left = 0
-    Top = 0
-    Width = 1024
-    Height = 57
-    Align = alTop
-    BevelOuter = bvNone
-    TabOrder = 1
-    ExplicitLeft = -400
-    object LabelPesquisa: TLabel
-      Left = 0
-      Top = 0
-      Width = 1024
-      Height = 15
-      Align = alTop
-      Caption = 'Pesquisar Vendedor'
-      ExplicitWidth = 103
-    end
-    object EditPesquisa: TEdit
-      Left = 0
-      Top = 15
-      Width = 1024
-      Height = 42
-      Align = alClient
-      Alignment = taCenter
-      TabOrder = 0
-      ExplicitHeight = 23
-    end
-  end
   object PanelInformation: TPanel
     Left = 0
     Top = 752
@@ -159,8 +169,6 @@ object Form189: TForm189
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitLeft = -400
-    ExplicitTop = 425
     object LabelInformation: TLabel
       Left = 0
       Top = 0
@@ -174,7 +182,7 @@ object Form189: TForm189
     end
   end
   object aDataSource: TDataSource
-    Left = 948
-    Top = 88
+    Left = 944
+    Top = 96
   end
 end

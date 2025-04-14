@@ -1,4 +1,4 @@
-object Form190: TForm190
+object VwManufacturer: TVwManufacturer
   Left = 0
   Top = 0
   ClientHeight = 768
@@ -13,6 +13,34 @@ object Form190: TForm190
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   TextHeight = 15
+  object PanelPesquisa: TPanel
+    Left = 0
+    Top = 0
+    Width = 1024
+    Height = 57
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 0
+    object LabelPesquisa: TLabel
+      Left = 0
+      Top = 0
+      Width = 1024
+      Height = 15
+      Align = alTop
+      Caption = 'Pesquisar Fabricante'
+      ExplicitWidth = 108
+    end
+    object EditPesquisa: TEdit
+      Left = 0
+      Top = 15
+      Width = 1024
+      Height = 42
+      Align = alClient
+      Alignment = taCenter
+      TabOrder = 0
+      ExplicitHeight = 23
+    end
+  end
   object DBGrid: TcxGrid
     AlignWithMargins = True
     Left = 0
@@ -31,13 +59,12 @@ object Form190: TForm190
     Font.Color = clWindowText
     Font.Height = -13
     Font.Name = 'Segoe UI'
-    Font.Style = [fsBold]
+    Font.Style = []
     ParentFont = False
-    TabOrder = 0
+    TabOrder = 1
     TabStop = False
     LookAndFeel.Kind = lfOffice11
-    ExplicitLeft = -400
-    ExplicitTop = -250
+    ExplicitHeight = 707
     object GridView: TcxGridDBTableView
       Navigator.Buttons.CustomButtons = <>
       Navigator.Buttons.First.Visible = True
@@ -98,8 +125,11 @@ object Form190: TForm190
         Options.AutoWidthSizable = False
         Width = 60
       end
-      object ColumnSellerName: TcxGridDBColumn
-        Caption = 'Vendedor'
+      object ColumnCNPJ: TcxGridDBColumn
+        DataBinding.IsNullValueType = True
+      end
+      object ColumnManufacturerName: TcxGridDBColumn
+        Caption = 'Fabricante'
         DataBinding.FieldName = 'numconselho'
         DataBinding.IsNullValueType = True
         PropertiesClassName = 'TcxTextEditProperties'
@@ -122,35 +152,6 @@ object Form190: TForm190
       GridView = GridView
     end
   end
-  object PanelPesquisa: TPanel
-    Left = 0
-    Top = 0
-    Width = 1024
-    Height = 57
-    Align = alTop
-    BevelOuter = bvNone
-    TabOrder = 1
-    ExplicitLeft = -400
-    object LabelPesquisa: TLabel
-      Left = 0
-      Top = 0
-      Width = 1024
-      Height = 15
-      Align = alTop
-      Caption = 'Pesquisar Vendedor'
-      ExplicitWidth = 103
-    end
-    object EditPesquisa: TEdit
-      Left = 0
-      Top = 15
-      Width = 1024
-      Height = 42
-      Align = alClient
-      Alignment = taCenter
-      TabOrder = 0
-      ExplicitHeight = 23
-    end
-  end
   object PanelInformation: TPanel
     Left = 0
     Top = 752
@@ -159,8 +160,6 @@ object Form190: TForm190
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitLeft = -400
-    ExplicitTop = 425
     object LabelInformation: TLabel
       Left = 0
       Top = 0
@@ -174,7 +173,7 @@ object Form190: TForm190
     end
   end
   object aDataSource: TDataSource
-    Left = 948
-    Top = 88
+    Left = 936
+    Top = 101
   end
 end

@@ -29,7 +29,7 @@ uses
   cxClasses, cxGridCustomView, cxGrid;
 
 type
-  TForm143 = class(TForm)
+  TForm135 = class(TForm)
     DBGrid: TcxGrid;
     GridView: TcxGridDBTableView;
     ColumnCodigo: TcxGridDBColumn;
@@ -41,14 +41,7 @@ type
     EditPesquisa: TEdit;
     PanelInformation: TPanel;
     LabelInformation: TLabel;
-    aDataSource: TDataSource;
-    cxGrid1: TcxGrid;
-    cxGridDBTableView1: TcxGridDBTableView;
-    cxGridDBColumn1: TcxGridDBColumn;
-    cxGridDBColumn2: TcxGridDBColumn;
-    cxGridDBCardView1: TcxGridDBCardView;
-    cxGridLevel1: TcxGridLevel;
-    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    s: TDataSource;
     procedure GridViewCustomDrawCell(Sender: TcxCustomGridTableView;
       ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
       var ADone: Boolean);
@@ -61,41 +54,13 @@ type
   end;
 
 var
-  Form143: TForm143;
+  Form135: TForm135;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm143.FormKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-begin
-  inherited;
-  case Key of
-    VK_ESCAPE:
-    begin
-      Close;
-    end;
-    VK_NEXT:
-    begin
-      Process;
-    end;
-    VK_RETURN:
-    begin
-      SelectNext(Screen.ActiveControl, True, True);
-    end;
-    VK_UP:
-    begin
-      aDataSource.DataSet.Prior;
-    end;
-    VK_DOWN:
-    begin
-      aDataSource.DataSet.Next;
-    end;
-  end;
-end;
-
-procedure TForm143.GridViewCustomDrawCell(Sender: TcxCustomGridTableView;
+procedure TForm135.GridViewCustomDrawCell(Sender: TcxCustomGridTableView;
   ACanvas: TcxCanvas; AViewInfo: TcxGridTableDataCellViewInfo;
   var ADone: Boolean);
 begin
@@ -107,13 +72,13 @@ begin
   end;
 end;
 
-procedure TForm143.Process;
+procedure TForm135.Process;
 begin
   Review;
   Close;
 end;
 
-procedure TForm143.Review;
+procedure TForm135.Review;
 begin
 
 end;
